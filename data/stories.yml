@@ -1,0 +1,52 @@
+version: "2.0"
+
+stories:
+
+- story: credit cards
+  steps:
+    - intent: credit_card
+    - action: utter_credit_card
+
+- story: company info
+  steps:
+    - intent: about_abc
+    - action: utter_about_abc
+    - intent: affirm
+    - action: utter_credit_card
+
+- story: company info unhappy 
+  steps:
+    - intent: about_abc
+    - action: utter_about_abc
+    - intent: deny
+    - action: utter_goodbye
+
+- story: product info
+  steps:
+    - intent: about_products
+    - action: utter_about_products
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

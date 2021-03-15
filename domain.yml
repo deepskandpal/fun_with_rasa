@@ -1,0 +1,59 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - about_abc
+  - credit_card
+  - about_products
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_about_abc:
+  - text: "abc bank is one of the oldest private bank in this country \n it has currently
+          38 branches in this country. abc bank provides all the latest banking services but the
+          flagship products are \n 1) credit cards \n 2) personal loans \n 3) life insuarance.
+          \n would you like to know more about them"
+
+  utter_about_products:
+  - text: "abc bank provides all the latest banking services but the
+          flagship products are \n 1) credit cards \n 2) personal loans \n 3) life insuarance.
+          \n would you like to know more about them"
+
+  utter_credit_card:
+  - text: "sure here are some things you can know about our credit card services
+          \n 0) what is abc credit card and how does it work?
+          \n 1) get one \n 2) my credit card balance \n 3) pay credit card bill
+          \n 3) block credit card "
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - utter_about_abc
+  - utter_credit_card
+  - utter_about_products
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
