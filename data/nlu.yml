@@ -34,6 +34,8 @@ nlu:
     - tell me about the [personal loan](product) of abc bank
     - tell me about products
     - [get one](service)
+    - [health insuarance](product)
+    - tell me about the [health insuarance](product)
     - i want to check my [credit card](product) balance
 
 - intent: about_abc
@@ -57,6 +59,8 @@ nlu:
     - help with this website
     - how can i [login](service) to this website
     - find description on this website
+    - take me to [home page](service)
+    - how can go to [login](service) page
     - where is the careers section on this website
     - i cannot find [home button](service) here
     - where can i [contact customer care](service) on this website 
@@ -74,6 +78,9 @@ nlu:
     - my name is [avinash](name)
     - sure here's my email address [abc@xyz.com](email)
     - [sandhya](name)
+    - [deepanshu](name)
+    - [anshuman](name)
+    - [felix](name)
     - [dkandpalz@ril.com](email)
 
 - intent: greet
@@ -91,6 +98,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+
 - intent: goodbye
   examples: |
     - good afternoon

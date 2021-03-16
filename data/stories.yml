@@ -6,16 +6,15 @@ stories:
   steps:
     - intent: about_abc
     - action: utter_about_abc
-    - slot_was_set:
-      - know_more: True
-    - action: utter_ask_product
+    - intent: affirm
+    - action: product_form
+    - active_loop: product_form    
 
 - story: main about unhappy 
   steps:
     - intent: about_abc
     - action: utter_about_abc
-    - slot_was_set:
-      - know_more: False
+    - intent: deny
     - action: utter_goodbye
 
 - story: main products
@@ -37,6 +36,8 @@ stories:
   steps:
     - intent: navigate
     - action: utter_navigate
+    - action: service_form
+    - active_loop: service_form
 
 - story: main sales
   steps:
@@ -44,6 +45,14 @@ stories:
     - action: utter_generate_sales
     - action: sales_form
     - active_loop: sales_form
+
+- story: main sales unhappy
+  steps:
+    - intent: generate_sales
+    - action: utter_generate_sales
+    - intent: deny
+    - action: utter_goodbye
+
 
 - story: starting
   steps:
@@ -74,14 +83,7 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
-
-# - story: interactive_story_1
-#   steps:
-#   - intent: about_abc
-#   - action: utter_about_abc
-#   - intent: credit_card
-#   - action: utter_credit_card
-
+ 
 - story: interactive_story_1
   steps:
   - intent: deny

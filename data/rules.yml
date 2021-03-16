@@ -22,7 +22,44 @@ rules:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
-- rule: Submit form
+# - rule: Example of an unhappy path
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: sales_form
+#   steps:
+#   # This unhappy path handles the case of an intent `chitchat`.
+#   - intent: chitchat
+#   - action: utter_chitchat
+#   # Return to form after handling the `chitchat` intent
+#   - action: sales_form
+#   - active_loop: sales_form
+- rule: product form
+  condition:
+  # Condition that form is active.
+  - active_loop: product_form
+  steps:
+  # Form is deactivated
+  - action: product_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_explain_products
+
+- rule: Submit service form
+  condition:
+  # Condition that form is active.
+  - active_loop: service_form
+  steps:
+  # Form is deactivated
+  - action: service_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_redirect_service
+
+- rule: Submit sales form
   condition:
   # Condition that form is active.
   - active_loop: sales_form
