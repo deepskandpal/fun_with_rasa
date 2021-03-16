@@ -1,15 +1,45 @@
 version: "2.0"
-
 nlu:
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - Can you book plane tickets
+    - how was toofan's trailer
+    - can you define maths
+    - were is hotel
+    - garbage garbage
+    - i like katrina
+    - namo namo ji shankara
+    - what that thing
+
+- intent: help
+  examples: |
+    - what can you do for me
+    - i need help
+    - back
+    - take me back
+    - i want to know
+    - tell me what are your services
+
 - intent: about_products
   examples: |
+    - 2
+    - second
     - tell me about abc products
     - info about abc products
     - what all services and products do you offer
-    - where can i get a credit card
+    - where can i get a [credit card](product)
+    - tell me about the [personal loan](product) of abc bank
+    - tell me about products
+    - [get one](service)
+    - i want to check my [credit card](product) balance
 
 - intent: about_abc
   examples: |
+    - 1
+    - first
     - tell me about this bank
     - what does abc bank do
     - can you provide some info about abc
@@ -18,17 +48,33 @@ nlu:
     - give me info
     - need more information
     - provide details of abc
-    - what is abc bank? 
-- intent: credit_card
+    - what is abc bank?
+    - tell me about abc
+    - about abc
+
+- intent: navigate
   examples: |
-    - credit card 
-    - one
-    - 1
-    - first
-    - tell me about the credit card
-    - i want to know about the credit card facility
-    - info about credit card
-    - credit card info 
+    - help with this website
+    - how can i [login](service) to this website
+    - find description on this website
+    - where is the careers section on this website
+    - i cannot find [home button](service) here
+    - where can i [contact customer care](service) on this website 
+    - show me how can i go back on this website
+
+- intent: generate_sales
+  examples: |
+    - raise a request for an enquiry
+    - i want to raise a request
+    - i want to buy [credit card](product) help me get one
+    - i want to get [health insuarance](product)
+    - how can i get a [personal loan](product)
+    - what do i need to do to get a [credit card](product)
+    - my email id is [xyz@gmail.com](email)
+    - my name is [avinash](name)
+    - sure here's my email address [abc@xyz.com](email)
+    - [sandhya](name)
+    - [dkandpalz@ril.com](email)
 
 - intent: greet
   examples: |
@@ -45,7 +91,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - good afternoon
@@ -59,7 +104,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -68,7 +112,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -78,7 +121,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -95,7 +137,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -112,7 +153,6 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?

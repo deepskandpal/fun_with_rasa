@@ -2,29 +2,53 @@ version: "2.0"
 
 stories:
 
-- story: credit cards
-  steps:
-    - intent: credit_card
-    - action: utter_credit_card
-
-- story: company info
+- story: main about
   steps:
     - intent: about_abc
     - action: utter_about_abc
-    - intent: affirm
-    - action: utter_credit_card
+    - slot_was_set:
+      - know_more: True
+    - action: utter_ask_product
 
-- story: company info unhappy 
+- story: main about unhappy 
   steps:
     - intent: about_abc
     - action: utter_about_abc
-    - intent: deny
+    - slot_was_set:
+      - know_more: False
     - action: utter_goodbye
 
-- story: product info
+- story: main products
   steps:
     - intent: about_products
     - action: utter_about_products
+    - intent: affirm
+    - action: product_form
+    - active_loop: product_form
+
+- story: main products unhappy
+  steps:
+    - intent: about_products
+    - action: utter_about_products
+    - intent: deny
+    - action: utter_goodbye
+
+- story: main navigate
+  steps:
+    - intent: navigate
+    - action: utter_navigate
+
+- story: main sales
+  steps:
+    - intent: generate_sales
+    - action: utter_generate_sales
+    - action: sales_form
+    - active_loop: sales_form
+
+- story: starting
+  steps:
+    - intent: help
+    - action: utter_help
 
 - story: happy path
   steps:
@@ -50,3 +74,14 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: about_abc
+#   - action: utter_about_abc
+#   - intent: credit_card
+#   - action: utter_credit_card
+
+- story: interactive_story_1
+  steps:
+  - intent: deny
