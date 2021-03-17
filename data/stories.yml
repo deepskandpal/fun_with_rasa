@@ -39,6 +39,14 @@ stories:
     - action: service_form
     - active_loop: service_form
 
+
+- story: main navigate unhappy
+  steps:
+    - intent: navigate
+    - action: utter_navigate
+    - intent: deny
+    - action: utter_goodbye
+
 - story: main sales
   steps:
     - intent: generate_sales

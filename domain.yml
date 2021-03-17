@@ -8,7 +8,6 @@ intents:
 - about_products
 - navigate
 - generate_sales
-- raise_ticket
 - greet
 - goodbye
 - affirm
@@ -63,14 +62,14 @@ responses:
           {email}, \n
           {product}" 
   utter_redirect_service:
-  - text: "taking you to {service} page"
+  - text: "taking you to {service}"
   utter_generate_sales:
   - text:  sure before we go ahead we request you to provide us with some personal info like name , emailID
   utter_navigate:
   - text:  "sure here are few things i can help you find on our website \n
             1) home page \n 
             2) customer care \n
-            3) careers
+            3) careers\n 
             where would you want to go"
   utter_ask_product:
   - text: "which of the following products do you want to know about? \n

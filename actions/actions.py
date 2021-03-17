@@ -21,11 +21,11 @@ class ExplainProducts(Action):
     def run(self, dispatcher, tracker, domain):
         product = tracker.get_slot('product')
         if "credit" in product:
-            dispatcher.utter_message(text = "credit cards are the best")
+            dispatcher.utter_message(text = "credit cards come in 2 variants basic and platinum basic has a limit of 50k rs and platinum 4L rs ")
         elif "loan" in product:
-             dispatcher.utter_message(text = "loans are great")
+             dispatcher.utter_message(text = "personal loans come in various tiers each having their own rate of interests ranging from 8% to 15 % based on the analysis done by the loan expert")
         elif "insuarance" in product:
-             dispatcher.utter_message(text = "insuarance is a subject matter to market risk")
+             dispatcher.utter_message(text = "abc bank provides 2 kinds of life insuarance, term and endowment. you can know more about them on our solutions page")
         else:
             dispatcher.utter_message(text = "you can know more about {product} on our solutions page ")
         return []
