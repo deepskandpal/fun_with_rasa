@@ -44,7 +44,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   # The actions we want to run when the form is submitted.
-  - action: utter_explain_products
+  - action: explain_products
 
 - rule: Submit service form
   condition:

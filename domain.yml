@@ -1,7 +1,7 @@
 version: '2.0'
 session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  session_expiration_time: 3
+  carry_over_slots_to_new_session: false
 intents:
 - about_abc
 - help
@@ -36,35 +36,44 @@ forms:
     email:
       - type: from_entity
         entity: email
+    product:
+      - type: from_entity
+        entity: product
+  service_form:
+    service:
+      - type: from_entity
+        entity: service
 
 slots:
   name:
     type: text
   email:
     type: text
-  requested_slot:
-    type: categorical
-    values:
-      - product
-      - service
-      - info
-    influence_conversation: true
-  know_more:
-    type: bool
+  product:
+    type: text
+  service:
+    type: text
 
 responses:
   utter_submit:
   - text: your request has been successfully recorded you will recieve an email shortly with all the details
   utter_slots_values:
-  - text: your details 
-          {name}, 
-          {email}
+  - text: "your details \n
+          {name}, \n
+          {email}, \n
+          {product}" 
+  utter_redirect_service:
+  - text: "taking you to {service} page"
   utter_generate_sales:
   - text:  sure before we go ahead we request you to provide us with some personal info like name , emailID
   utter_navigate:
-  - text:  sure before here are few things i can help you find on our website
+  - text:  "sure here are few things i can help you find on our website \n
+            1) home page \n 
+            2) customer care \n
+            3) careers
+            where would you want to go"
   utter_ask_product:
-  - text: "sure which of the following products do you want to know about? \n
+  - text: "which of the following products do you want to know about? \n
           1) credit card \n
           2) personal loan  \n
           3) life insuarance \n"
@@ -121,8 +130,6 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+
 actions:
-- utter_about_abc
-- utter_about_products
-- utter_credit_card
-- utter_help
+  - explain_products
